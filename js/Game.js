@@ -38,7 +38,7 @@ class Game {
       car3 = createSprite(10,700);
       car3.addImage("car3",car3_img);
       car3.scale = 0.35;
-      car4 = createSprite(10,900);
+      car4 = createSprite(5,100);
       car4.addImage("car4",car4_img);
       car4.scale = 0.35;
       cars = [car1, car2, car3, car4];
@@ -46,10 +46,6 @@ class Game {
   
     play(){
       form.hide();
-      spawnObstacles();
-      spawnObstacles1();
-      spawnObstacles2();
-      spawnObstacles3();
       
       Player.getPlayerInfo();
       
@@ -93,98 +89,17 @@ class Game {
         player.distance -=10
         player.update();
       }
-      if(keyIsDown( UP_ARROW) && player.index !== null){
-        player.velocityY =10;
-      
-      }
-      if(player.distance === 6400){
+     
+      if(player.distance===6000){
         gameState = 2;
       }
-
-      if(car1.collide(obstacle)) {
-        gameState===2;
-        car1.setVelocityX = 0;
-    }
-    if(car2.collide(obstacle)) {
-      gameState===2;
-      car2.setVelocityX = 0;
-    }
-    if(car3.collide(obstacle)) {
-      gameState===2;
-      car3.setvelocityX=0;
-    }
-    if(car4.collide(obstacle)) {
-      gameState===2;
-      car4.setVelocityX = 0;
-    }
 
       drawSprites();
     }
   
     end(){
       console.log("Game Ended");
+     
     }
   }
-
-  function spawnObstacles() {
-    var i = 0;
-    if (frameCount % 360 === 0) {
-        i = i + 1000
-        obstacle = createSprite(600, 125);
-        obstacle.visible=true;
-        obstacle.velocityX = -2;
-        obstacle.addImage(hurdle);
-
-        obstacle.scale = 0.80;
-        obstacle.lifetime = 800;
-        obstacle.setCollider("rectangle", -10, 0, 90, 150);
-        obstacle.debug = true;
-    }
-}
-
-function spawnObstacles1() {
-    if (frameCount % 360 === 0) {
-
-        obstacle = createSprite(900, 385);
-
-        obstacle.velocityX = -2;
-        obstacle.addImage(hurdle);
-        obstacle.scale = 0.80;
-        obstacle.lifetime = 800;
-        obstacle.setCollider("rectangle", -10, 0, 90, 150);
-        obstacle.debug = true;
-
-    }
-}
-
-    function spawnObstacles2() {
-        if (frameCount % 360 === 0) {
-    
-            obstacle = createSprite(1100, 645);
-    
-            obstacle.velocityX = -2;
-            obstacle.addImage(hurdle);
-            obstacle.scale = 0.80;
-            obstacle.lifetime = 800;
-            obstacle.setCollider("rectangle", -10, 0, 90, 150);
-            obstacle.debug = true;
-    
-        }
-    }
-
-    function spawnObstacles3() {
-        if (frameCount % 360 === 0) {
-    
-            obstacle = createSprite(750, 205);
-    
-            obstacle.velocityX = -2;
-            obstacle.addImage(hurdle);
-            obstacle.scale = 0.80;
-            obstacle.lifetime = 800;
-            obstacle.setCollider("rectangle", -10, 0, 90, 150);
-            obstacle.debug = true;
-    
-        }
-    }
-
   

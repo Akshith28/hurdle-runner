@@ -13,7 +13,6 @@ var cars, car1, car2, car3, car4;
 var track, car1_img, car2_img, car3_img, car4_img;
 
 function preload(){
-  hurdle = loadImage("images/hurdle.png");
   track = loadImage("images/track.jpg");
   car1_img = loadImage("images/player1.png");
   car2_img = loadImage("images/player2.png");
